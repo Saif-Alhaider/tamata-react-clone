@@ -32,7 +32,7 @@ function Carousel() {
     <div className="carousel-item active relative float-left w-full">
       <img
         src="https://www.tamata.com/media/ktpl/banners/_1__1.jpg"
-        className="block w-full"
+        className="block w-full h-screen"
         alt="..."
       />
       <div className="carousel-caption hidden md:block absolute text-center">
@@ -43,7 +43,7 @@ function Carousel() {
     <div className="carousel-item relative float-left w-full">
       <img
         src="https://www.tamata.com/media/ktpl/banners/cosmetica-phone.jpg"
-        className="block w-full"
+        className="block w-full h-screen"
         alt="..."
       />
       <div className="carousel-caption hidden md:block absolute text-center">
@@ -54,7 +54,7 @@ function Carousel() {
     <div className="carousel-item relative float-left w-full">
       <img
         src="https://www.tamata.com/media/ktpl/banners/home_banner-phone.jpg"
-        className="block w-full"
+        className="block w-full h-screen"
         alt="..."
       />
       <div className="carousel-caption hidden md:block absolute text-center">

@@ -6,7 +6,9 @@ function App() {
    <div>
     <Navbar/>
    
-   <Carousel />
+    <div className="block min-h-10">
+    <Carousel />
+    </div>
    </div>
   );
 }
