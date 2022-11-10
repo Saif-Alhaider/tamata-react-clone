@@ -1,8 +1,13 @@
 import "./App.css";
+import Carousel from "./carousel/CarouselMain";
 import Navbar from "./Navbar/NavbarMain";
 function App() {
   return (
-   <Navbar/>
+   <div>
+    <Navbar/>
+   
+   <Carousel />
+   </div>
   );
 }
 
