@@ -1,9 +1,9 @@
 import React from "react";
-import CartICon from "../svgs/NavBarSvgs/cart";
-import GlobalICon from "../svgs/NavBarSvgs/global";
-import HeartICon from "../svgs/NavBarSvgs/heart";
-import MapICon from "../svgs/NavBarSvgs/map";
-import PersonICon from "../svgs/NavBarSvgs/person";
+import CartICon from "../../svgs/NavBarSvgs/cart";
+import GlobalICon from "../../svgs/NavBarSvgs/global";
+import HeartICon from "../../svgs/NavBarSvgs/heart";
+import MapICon from "../../svgs/NavBarSvgs/map";
+import PersonICon from "../../svgs/NavBarSvgs/person";
 function NavBarItems() {
   let svgItems = [
     {
