@@ -45,31 +45,38 @@ function MainSecondNavBar() {
   ];
   return (
     <div className="w-full h-16 bg-red-600">
-      <ul className={`flex flex-row-reverse justify-between px-8 h-full items-center`}>
+      <ul className={`flex flex-row-reverse  px-8 h-full items-center`}>
         {mainSiteCategories.map((category, index) => {
           return (
             <li
               onMouseEnter={mouseEnter}
               onMouseLeave={mouseLeave}
               key={category.title}
-              className=" group relative text-white font-semibold text-lg flex items-center cursor-pointer hover:bg-slate-900 h-full p-4 ease-in-out duration-150 svn"
+              className=" group w-full relative text-white font-semibold text-lg flex cursor-pointer hover:bg-slate-900 h-full p-4 ease-in-out duration-150 items-center justify-center "
             >
-              <span>{category.title}</span>
-              <i className="arrow arrow-down mx-2 border-white"></i>
+              <span className="text-end">{category.title}</span>
+              {/* <i className="arrow arrow-down mx-2 border-white"></i> */}
             </li>
           );
         })}
         <div
         className={`absolute top-[144px] bg-teal-500 rounded-md shadow-xl
-                     "${state ? "visible" : "visually-hidden"}"
+                     ${state ? "visible" : "visually-hidden"}
                      mega-menu visible
                      w-[calc(100%/2)] h-72 
                      p-20
                     ]
                 `}
-                style={{
-                  left:offX <=33?offX:offX/2,
-                }}
+                style={
+                  offX <33?
+                  {
+                  left:offX
+                }:
+                {
+                  left:offX >1220?undefined:offX/1.75,
+                  transform:"100px 20px"
+                }
+              }
       >
         <p>{String(offX)}</p>
       </div>
