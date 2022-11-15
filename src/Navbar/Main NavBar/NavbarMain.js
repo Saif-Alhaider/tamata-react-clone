@@ -6,7 +6,7 @@ import NavBarSearchBar from './NavBarSearchBar';
 function Navbar(){
     return (
 <header
-      className="container mx-auto bg-gray-100 px-4 py-1 flex flex-row-reverse items-center"
+      className="container mx-auto bg-gray-100 px-4 py-1 flex flex-row-reverse items-center h-20"
     >
       <NavBarLogo/>
       {/* search section */}

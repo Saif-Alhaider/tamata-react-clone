@@ -8,7 +8,7 @@ function App() {
     <Navbar/>
    <MainSecondNavBar/>
     <div className="block min-h-10">
-    <Carousel />
+    {/* <Carousel /> */}
     </div>
    </div>
   );
