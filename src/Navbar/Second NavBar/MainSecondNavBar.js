@@ -1,4 +1,3 @@
-import React from "react";
 import { useState } from "react";
 function MainSecondNavBar() {
   const [state, setstate] = useState(false);
@@ -44,7 +43,7 @@ function MainSecondNavBar() {
     },
   ];
   return (
-    <div className="w-full h-16 bg-red-600">
+    <div className="container mx-auto h-16 bg-red-600">
       <ul className={`flex flex-row-reverse  px-8 h-full items-center`}>
         {mainSiteCategories.map((category, index) => {
           return (
@@ -52,15 +51,16 @@ function MainSecondNavBar() {
               onMouseEnter={mouseEnter}
               onMouseLeave={mouseLeave}
               key={category.title}
-              className=" group w-full relative text-white font-semibold text-lg flex cursor-pointer hover:bg-slate-900 h-full p-4 ease-in-out duration-150 items-center justify-center "
+              className=" group w-full relative text-white font-semibold text-lg flex cursor-pointer hover:bg-slate-900 h-full p-4 ease-in-out duration-150 items-center justify-center"
             >
-              <span className="text-end">{category.title}</span>
-              {/* <i className="arrow arrow-down mx-2 border-white"></i> */}
+              <span>{category.title}</span>
             </li>
           );
         })}
         <div
-        className={`absolute top-[144px] bg-teal-500 rounded-md shadow-xl
+        onMouseEnter={()=>setstate((state) => true)}
+        onMouseLeave={mouseLeave}
+        className={`absolute top-[144px] bg-teal-500 rounded-md shadow-2xl
                      ${state ? "visible" : "visually-hidden"}
                      mega-menu visible
                      w-[calc(100%/2)] h-72 
@@ -70,11 +70,11 @@ function MainSecondNavBar() {
                 style={
                   offX <33?
                   {
-                  left:offX
+                  left:offX,
                 }:
                 {
                   left:offX >1220?undefined:offX/1.75,
-                  transform:"100px 20px"
+                  // transform:"translate(12px,23px)"
                 }
               }
       >
