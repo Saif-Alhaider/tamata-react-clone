@@ -1,4 +1,6 @@
 import { useState } from "react";
+import {motion} from "framer-motion";
+
 function MainSecondNavBar() {
   const [state, setstate] = useState(false);
   const [offX, setoffX] = useState(0)
@@ -44,7 +46,7 @@ function MainSecondNavBar() {
   ];
   return (
     <div className="container mx-auto h-16 bg-red-600">
-      <ul className={`flex flex-row-reverse  px-8 h-full items-center`}>
+      <ul className={`relative flex flex-row-reverse  px-8 h-full items-center`}>
         {mainSiteCategories.map((category, index) => {
           return (
             <li
@@ -57,17 +59,17 @@ function MainSecondNavBar() {
             </li>
           );
         })}
-        <div
+        <motion.div
         onMouseEnter={()=>setstate((state) => true)}
         onMouseLeave={mouseLeave}
-        className={`absolute top-[144px] bg-teal-500 rounded-md shadow-2xl
+        className={`absolute top-[65px] bg-teal-500 rounded-md shadow-2xl
                      ${state ? "visible" : "visually-hidden"}
                      mega-menu visible
                      w-[calc(100%/2)] h-72 
                      p-20
                     ]
                 `}
-                style={
+                animate={
                   offX <33?
                   {
                   left:offX,
@@ -79,7 +81,7 @@ function MainSecondNavBar() {
               }
       >
         <p>{String(offX)}</p>
-      </div>
+      </motion.div>
       </ul>
       
     </div>
