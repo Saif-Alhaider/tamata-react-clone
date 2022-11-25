@@ -1,15 +1,22 @@
 import { useState } from "react";
-import {motion} from "framer-motion";
+import { motion } from "framer-motion";
 
 function MainSecondNavBar() {
   const [state, setstate] = useState(false);
-  const [offX, setoffX] = useState(0)
+  const [offX, setoffX] = useState(0);
+  const [currentIndex, setcurrentIndex] = useState(0);
 
   function mouseEnter(a) {
     setstate((state) => true);
-    setoffX((offX)=>a.target.getBoundingClientRect().x)
+    setoffX((offX) => a.target.getBoundingClientRect().x);
+    setcurrentIndex((currentIndex) => {
+      for (let index = 0; index < mainSiteCategories.length; index++) {
+        if (mainSiteCategories[index].title === a.target.textContent) {
+          return index;
+        }
+      }
+    });
 
-    
     console.log();
   }
   function mouseLeave() {
@@ -46,7 +53,9 @@ function MainSecondNavBar() {
   ];
   return (
     <div className="container mx-auto h-16 bg-red-600">
-      <ul className={`relative flex flex-row-reverse  px-8 h-full items-center`}>
+      <ul
+        className={`relative flex flex-row-reverse  px-8 h-full items-center`}
+      >
         {mainSiteCategories.map((category, index) => {
           return (
             <li
@@ -60,30 +69,28 @@ function MainSecondNavBar() {
           );
         })}
         <motion.div
-        onMouseEnter={()=>setstate((state) => true)}
-        onMouseLeave={mouseLeave}
-        className={`absolute top-[65px] bg-teal-500 rounded-md shadow-2xl
+          onMouseEnter={() => setstate((state) => true)}
+          onMouseLeave={mouseLeave}
+          className={`absolute top-[65px] bg-teal-500 rounded-md shadow-2xl
                      ${state ? "visible" : "visually-hidden"}
                      mega-menu visible
                      w-[calc(100%/2)] h-72 
                      p-20
                     ]
                 `}
-                animate={
-                  offX <33?
-                  {
-                  left:offX,
-                }:
-                {
-                  left:offX >1220?undefined:offX/1.75,
-                  // transform:"translate(12px,23px)"
+          animate={
+            currentIndex < 5
+              ? {
+                  right: `calc(32px + 163.56px * ${currentIndex})`,
                 }
-              }
-      >
-        <p>{String(offX)}</p>
-      </motion.div>
+              : {
+                right: `calc(32px + 163.56px * ${currentIndex -4}.32)`,
+                }
+          }
+        >
+          <p>currentIndex</p>
+        </motion.div>
       </ul>
-      
     </div>
   );
 }
