@@ -84,7 +84,7 @@ function MainSecondNavBar() {
           className={`absolute top-[65px] 
                      "${state ? "visible" : "visually-hidden"}"
                      mega-menu visible
-                     w-[calc(100%/2)] h-72 
+                     w-[calc(100%/2)] 
                      "overflow-hidden"
                      "border-blue-600 border-4"
                      rounded-xl 

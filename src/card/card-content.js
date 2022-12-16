@@ -3,7 +3,7 @@ function Card({ first_second_columns }) {
   return (
     // the parent
     <div
-      className="grid grid-cols-3 w-full h-full"
+      className="grid gap-[2px] grid-cols-3 w-full h-auto bg-[#F0F3F6] p-2 overflow-hidden"
       style={{ direction: "rtl" }}
     >
       {/* first column on the right */}
@@ -13,15 +13,21 @@ function Card({ first_second_columns }) {
           direction: "ltr",
         }}
       >
-        <ul className="list-none relative p-[2px] h-96">
+        <ul className="list-none relative h-96">
           <div className="relative">
             {/* when hovering on mouse it moves */}
             <div
-              className={`absolute w-full bg-${triggerColor} rounded-md h-16`}
+              className={`absolute w-full bg-${triggerColor} rounded-md h-16 `}
             >
               {/* the triangle */}
-              <div className={`border-b-[20px] border-b-${triggerColor} border-r-[20px] border-r-transparent  rotate-45 absolute left-[-8px] top-[50%] translate-y-[-50%]`}
-              style={{borderBottomLeftRadius:"4px"}}
+              <div
+                className={`border-b-[15px] border-b-${triggerColor} border-r-[15px] border-r-transparent  rotate-45 absolute left-[-6.5px] top-[50%] translate-y-[-50%] z-50 outline-black`}
+                style={{
+                  borderBottomLeftRadius: "4px",
+                  boxShadow:
+                    "0 0 0 3px  #F0F3F6",
+                  clipPath:"inset(0px 0px -10px -10px)"
+                }}
               ></div>
             </div>
           </div>
@@ -36,7 +42,7 @@ function Card({ first_second_columns }) {
         </ul>
       </div>
       {/* second column */}
-      <div className="bg-[#F0F3F6] col-start-2 col-end-4 relative -z-10"></div>
+      <div className={`bg-white col-start-2 col-end-4 relative z-0`}></div>
     </div>
   );
 }
