@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import Card from "../../card/card-content";
 
 function MainSecondNavBar() {
   const [state, setstate] = useState(false);
-  const [offX, setoffX] = useState(0);
+  const [, setoffX] = useState(0);
   const [currentIndex, setcurrentIndex] = useState(0);
 
   function mouseEnter(a) {
@@ -16,8 +17,6 @@ function MainSecondNavBar() {
         }
       }
     });
-
-    console.log();
   }
   function mouseLeave() {
     setstate((state) => false);
@@ -25,6 +24,17 @@ function MainSecondNavBar() {
   let mainSiteCategories = [
     {
       title: "جميع الفئات",
+      content: {
+        first_second_column: {
+          الازياء: [
+            "ملابس نسائية",
+            "حجابات",
+            "احذية وحقائب نسائية",
+            "اكسسوارات نسائية",
+          ],
+          "المنزل و المطبخ": ["المطبخ", "اجهزة المنزل"],
+        },
+      },
     },
     {
       title: "الالكترونيات",
@@ -62,7 +72,7 @@ function MainSecondNavBar() {
               onMouseEnter={mouseEnter}
               onMouseLeave={mouseLeave}
               key={category.title}
-              className=" group w-full relative text-white font-semibold text-lg flex cursor-pointer hover:bg-slate-900 h-full p-4 ease-in-out duration-150 items-center justify-center"
+              className=" group w-full relative text-white font-semibold text-lg flex cursor-pointer hover:bg-gray-900 hover:bg-opacity-75 h-full p-4 ease-in-out duration-150 items-center justify-center"
             >
               <span>{category.title}</span>
             </li>
@@ -71,12 +81,14 @@ function MainSecondNavBar() {
         <motion.div
           onMouseEnter={() => setstate((state) => true)}
           onMouseLeave={mouseLeave}
-          className={`absolute top-[65px] bg-teal-500 rounded-md shadow-2xl
-                     ${state ? "visible" : "visually-hidden"}
+          className={`absolute top-[65px] 
+                     "${state ? "visible" : "visually-hidden"}"
                      mega-menu visible
                      w-[calc(100%/2)] h-72 
-                     p-20
-                    ]
+                     "overflow-hidden"
+                     "border-blue-600 border-4"
+                     rounded-xl 
+                    
                 `}
           animate={
             currentIndex < 5
@@ -84,11 +96,13 @@ function MainSecondNavBar() {
                   right: `calc(32px + 163.56px * ${currentIndex})`,
                 }
               : {
-                right: `calc(32px + 163.56px * ${currentIndex -4}.32)`,
+                  right: `calc(32px + 163.56px * ${currentIndex - 4}.32)`,
                 }
           }
+          transition={{ type: "spring" }}
+          
         >
-          <p>currentIndex</p>
+          <Card {...{first_second_columns:mainSiteCategories[0].content.first_second_column}} />
         </motion.div>
       </ul>
     </div>

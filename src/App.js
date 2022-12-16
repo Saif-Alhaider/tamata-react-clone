@@ -1,5 +1,5 @@
 import "./App.css";
-import Carousel from "./carousel/CarouselMain";
+// import Carousel from "./carousel/CarouselMain";
 import Navbar from "./Navbar/Main NavBar/NavbarMain";
 import MainSecondNavBar from "./Navbar/Second NavBar/MainSecondNavBar";
 function App() {
