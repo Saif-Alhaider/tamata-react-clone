@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import CardElement from "./card-element";
 function Card({ first_second_columns }) {
   const [currentIndex, setcurrentIndex] = useState(0);
+  const [currentItems, setcurrentItems] = useState(Object);
   return (
     // the parent
     <div
@@ -32,16 +33,17 @@ function Card({ first_second_columns }) {
                   
                 }}
               ></div> */}
-            
           </motion.div>
 
           {Object.keys(first_second_columns).map((e, i) => {
-            console.log(currentIndex);
             return (
               <div>
                 <li
                   className="relative text-center h-16 align-middle flex items-center justify-center cursor-pointer font-bold "
-                  onMouseEnter={() => setcurrentIndex((currentIndex) => i)}
+                  onMouseEnter={() => {
+                    setcurrentItems((currentItems) => first_second_columns[e]);
+                    setcurrentIndex((currentIndex) => i);
+                  }}
                 >
                   {e}
                 </li>
@@ -52,12 +54,11 @@ function Card({ first_second_columns }) {
       </div>
       <div className="col-start-2 col-end-4 bg-white">
         {/* second column */}
-        <div className={`relative z-0 rounded-md grid grid-cols-2 gap-4 p-2`}>
-          <CardElement className="w-full "/>
-          <CardElement className="w-full "/>
-          <CardElement className="w-full "/>
-          <CardElement className="w-full "/>
-          
+        <div className={`relative z-0 rounded-md grid grid-cols-2 gap-8 p-2`}>
+          {Object.values(currentItems).map((element) => {
+            
+            return <CardElement elemtent_title={element.title} element_svg={element.svg} element_description={element.description}/>;
+          })}
         </div>
       </div>
     </div>

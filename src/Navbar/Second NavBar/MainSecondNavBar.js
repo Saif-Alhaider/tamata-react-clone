@@ -27,10 +27,27 @@ function MainSecondNavBar() {
       content: {
         first_second_column: {
           الازياء: [
-            "ملابس نسائية",
-            "حجابات",
-            "احذية وحقائب نسائية",
-            "اكسسوارات نسائية",
+            {
+              title:"ملابس نسائية",
+              description:"ملابس نسائية لجميع الاعمار",
+              // svg:"../../svgs/cardSvgs/woman_clothes.svg"
+              svg:"cardSvgs/woman_clothes.svg"
+            },
+            {
+              title:"حجابات",
+              description:"حجابات وعبي",
+              svg:"cardSvgs/hijab.svg"
+            },
+            {
+              title:"احذية وحقائب نسائية",
+              description:null,
+              svg:null
+            },
+            {
+              title:"اكسسوارات نسائية",
+              description:null,
+              svg:null,
+            },
           ],
           "المنزل و المطبخ": ["المطبخ", "اجهزة المنزل"],
           "الصحة و الجمال":["العطور","العناية بالبشرة","مستحضرات تجميل","شعر"],
@@ -88,7 +105,7 @@ function MainSecondNavBar() {
           onMouseEnter={() => setstate((state) => true)}
           onMouseLeave={mouseLeave}
           className={`absolute top-[65px] 
-                     "${state ? "visible" : "visually-hidden"}"
+                     ${state ? "visible" : "visually-hidden"}
                      mega-menu visible
                      w-[calc(100%/2)] 
                      "overflow-hidden"
